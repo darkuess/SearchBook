@@ -17,6 +17,9 @@ android {
 
         resValue("string", "kakao_app_key", "d3efa3dc26a13f641f63d7bb2d2326d4")
         resValue("string", "kakao_app_key_scheme", "kakaod3efa3dc26a13f641f63d7bb2d2326d4")
+        resValue("string", "kakao_rest_api_key", "KakaoAK ee6c3219fa05eaf6aa63cf19131f6b68")
+        // api
+        resValue("string", "base_url", "https://dapi.kakao.com")
     }
 
     buildTypes {
@@ -63,4 +66,15 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timber_version"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // DI
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin AndroidX Scope features
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    // Koin AndroidX Fragment features
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    testImplementation "org.koin:koin-test:0.9.3"
 }

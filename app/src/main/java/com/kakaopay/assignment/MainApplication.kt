@@ -8,9 +8,15 @@ import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.SdkLogger
 import com.kakao.sdk.common.rx
 import com.kakao.sdk.common.util.Utility
+import com.kakaopay.assignment.module.networkModule
+import com.kakaopay.assignment.module.repositoryModules
+import com.kakaopay.assignment.module.useCaseModules
+import com.kakaopay.assignment.module.viewModuleModules
 import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import com.uber.autodispose.autoDispose
 import io.reactivex.Completable
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 import timber.log.Timber
 
 class MainApplication : Application() {
@@ -23,11 +29,19 @@ class MainApplication : Application() {
         super.onCreate()
         initTimber()
         initKakaoSdk()
+        initDI()
     }
 
     override fun startActivity(intent: Intent) {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivityRx(intent)
+    }
+
+    private fun initDI() {
+        startKoin {
+            androidContext(this@MainApplication)
+            modules(appModule)
+        }
     }
 
     private fun initKakaoSdk() {
@@ -65,5 +79,12 @@ class MainApplication : Application() {
                 Lifecycle.Event.ON_DESTROY
             )
         }
+
+        private val appModule = listOf(
+            networkModule,
+            repositoryModules,
+            useCaseModules,
+            viewModuleModules
+        )
     }
 }

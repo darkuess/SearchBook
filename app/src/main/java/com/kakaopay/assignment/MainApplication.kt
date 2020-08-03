@@ -1,6 +1,7 @@
 package com.kakaopay.assignment
 
 import android.app.Application
+import android.content.Intent
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.kakao.sdk.common.KakaoSdk
@@ -9,6 +10,7 @@ import com.kakao.sdk.common.rx
 import com.kakao.sdk.common.util.Utility
 import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import com.uber.autodispose.autoDispose
+import io.reactivex.Completable
 import timber.log.Timber
 
 class MainApplication : Application() {
@@ -21,6 +23,11 @@ class MainApplication : Application() {
         super.onCreate()
         initTimber()
         initKakaoSdk()
+    }
+
+    override fun startActivity(intent: Intent) {
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivityRx(intent)
     }
 
     private fun initKakaoSdk() {
@@ -40,6 +47,12 @@ class MainApplication : Application() {
 
     private fun initTimber() {
         Timber.plant(Timber.DebugTree())
+    }
+
+    private fun startActivityRx(intent: Intent) {
+        Completable.fromAction { super.startActivity(intent) }
+            .autoDispose(scopeProvider)
+            .subscribe({}, Timber::e)
     }
 
     companion object {

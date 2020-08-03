@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navi_graph"
+    app:startDestination="@id/searchBookListFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/searchBookListFragment"
+        android:name="com.kakaopay.assignment.presentation.ui.SearchBookListFragment"
+        android:label="SearchBookListFragment" />
+
+    <fragment
+        android:id="@+id/searchBookDetailFragment"
+        android:name="com.kakaopay.assignment.presentation.ui.SearchBookDetailFragment"
+        android:label="SearchBookDetailFragment" />
+</navigation>

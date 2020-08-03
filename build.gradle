@@ -18,9 +18,18 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    navgation_version = '2.3.0'
+    kakao_login_version = '2.0.0-beta05'
+    autodispose_version = '1.4.0'
+    timber_version = '4.7.1'
+    lifecycle_version = '2.2.0'
 }

@@ -14,6 +14,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        resValue("string", "kakao_app_key", "d3efa3dc26a13f641f63d7bb2d2326d4")
+        resValue("string", "kakao_app_key_scheme", "kakaod3efa3dc26a13f641f63d7bb2d2326d4")
     }
 
     buildTypes {
@@ -21,6 +24,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -34,4 +46,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    // navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$navgation_version"
+
+    // kakao login
+    implementation "com.kakao.sdk:v2-user-rx:$kakao_login_version"
+
+    // autodispose
+    implementation "com.uber.autodispose:autodispose-android-archcomponents:$autodispose_version"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 }

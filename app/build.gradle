@@ -82,4 +82,7 @@ dependencies {
 
     // imageview
     implementation 'com.facebook.fresco:fresco:2.1.0'
+
+    // keyboard control
+    implementation 'com.g4s8:lib:1.0.5'
 }

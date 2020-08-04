@@ -8,7 +8,7 @@ fun BookResult.toEntity(): BookEntity {
     return BookEntity(
         title = title, // 도서 제목
         contents = contents, // 도서 소개
-        url = url, // 도서 상세 URL
+        url = url?.replace("https://search", "https://m.search"), // 도서 상세 URL
         isbn = isbn,//국제 표준 도서번호, ISBN10 또는 ISBN13, ISBN10, ISBN13 중 하나 이상 존재, 공백(' ')으로 구분
         datetime = datetime,//도서 출판날짜, ISO 8601 형식 [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].000+[tz]
         authors = authors,// 도서 저자 리스트

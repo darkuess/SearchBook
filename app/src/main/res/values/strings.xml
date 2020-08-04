@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SearchBook</string>
+    <string name="arg_book_entity">book_entity</string>
+    <string name="search">검색</string>
 </resources>

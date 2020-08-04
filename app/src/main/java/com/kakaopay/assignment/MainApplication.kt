@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Intent
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.SdkLogger
 import com.kakao.sdk.common.rx
@@ -30,6 +31,11 @@ class MainApplication : Application() {
         initTimber()
         initKakaoSdk()
         initDI()
+        initFresco()
+    }
+
+    private fun initFresco() {
+        Fresco.initialize(this)
     }
 
     override fun startActivity(intent: Intent) {

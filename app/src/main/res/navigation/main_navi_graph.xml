@@ -14,5 +14,15 @@
     <fragment
         android:id="@+id/searchBookDetailFragment"
         android:name="com.kakaopay.assignment.presentation.ui.SearchBookDetailFragment"
-        android:label="SearchBookDetailFragment" />
+        android:label="SearchBookDetailFragment">
+        <argument
+            android:name="@string/arg_book_entity"
+            android:defaultValue="@null"
+            app:argType="com.kakaopay.assignment.domain.entity.BookEntity" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_searchBookDetailFragment"
+        app:destination="@id/searchBookDetailFragment" />
+
 </navigation>

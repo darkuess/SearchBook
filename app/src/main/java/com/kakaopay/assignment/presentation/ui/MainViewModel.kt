@@ -12,7 +12,7 @@ import timber.log.Timber
 class MainViewModel : AutoDisposeViewModel() {
 
     init {
-        authorize()
+        //authorize()
     }
 
     private fun authorize() {

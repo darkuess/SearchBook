@@ -5,5 +5,5 @@ import com.kakaopay.assignment.data.entity.SearchOption
 import io.reactivex.Single
 
 interface SearchDataSource {
-    fun getBookList(searchOption: SearchOption?): Single<List<BookEntity>>
+    fun getBookList(searchOption: SearchOption): Single<List<BookEntity>>
 }

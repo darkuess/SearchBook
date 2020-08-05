@@ -14,7 +14,7 @@ data class SearchOption(
 
     @SerializedName("page")
     @Expose
-    val page: Int? = 1,  // 결과 페이지 번호, 1~50 사이의 값, 기본 값 1
+    var page: Int? = 1,  // 결과 페이지 번호, 1~50 사이의 값, 기본 값 1
 
     @SerializedName("size")
     @Expose

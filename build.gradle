@@ -36,4 +36,5 @@ ext {
     autodispose_version = '1.4.0'
     timber_version = '4.7.1'
     lifecycle_version = '2.2.0'
+    paging_version = '3.0.0-alpha03'
 }

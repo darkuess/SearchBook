@@ -3,8 +3,8 @@ package com.kakaopay.assignment.module
 import com.kakaopay.assignment.data.api.DaumSearchApi
 import com.kakaopay.assignment.data.datasource.SearchDataSource
 import com.kakaopay.assignment.data.datasource.SearchDataSourceRemoteImpl
+import com.kakaopay.assignment.domain.repository.PagedSearchRepository
 import com.kakaopay.assignment.domain.repository.SearchRepository
-import com.kakaopay.assignment.domain.repository.SearchRepositoryImpl
 import com.kakaopay.assignment.domain.usecase.SearchBookUseCase
 import com.kakaopay.assignment.domain.usecase.SearchUseCase
 import com.kakaopay.assignment.module.network.createNetworkClient
@@ -22,7 +22,7 @@ val networkModule = module {
 
 val repositoryModules = module {
     single<SearchDataSource> { SearchDataSourceRemoteImpl(api = get()) }
-    single<SearchRepository> { SearchRepositoryImpl(remoteDataSource = get()) }
+    factory<SearchRepository> { PagedSearchRepository(api = get(), remoteDataSource = get()) }
 }
 
 val useCaseModules = module {

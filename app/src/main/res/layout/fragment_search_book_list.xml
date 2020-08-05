@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@={viewModel.searchText}"
+            app:addTextChangedListener="@{viewModel.textWatcher}"
             app:bindTriggerSearch="@{viewModel.triggerSearch}"
             app:layout_constraintBottom_toTopOf="@id/bookList"
             app:layout_constraintEnd_toStartOf="@+id/search"

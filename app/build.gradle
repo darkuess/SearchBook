@@ -93,4 +93,6 @@ dependencies {
     implementation "androidx.paging:paging-rxjava2:$paging_version"
     // optional - Guava ListenableFuture support
     //implementation "androidx.paging:paging-guava:$paging_version"
+
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
 }
